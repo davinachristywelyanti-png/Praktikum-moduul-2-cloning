@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!-- Deklarasi dokumen HTML5 -->
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- WAJIB untuk Responsive Design: lebar halaman mengikuti lebar layar perangkat -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="icon" href="images/logo-title.png" sizes="32x32" />
+    <title>Integritas: Kunci Membangun Karakter &amp; Kepercayaan</title>
+
+    <!-- Memuat font Sora & Figtree dari Google Fonts (font yang mirip dengan web aslinya) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Menghubungkan file CSS eksternal (style.css harus satu folder dengan index.html) -->
+    <link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <!-- Checkbox tersembunyi yang dipakai sebagai "saklar" menu hamburger -->
+        <input type="checkbox" id="menu-toggle">
+
+        <div class="header-inner">
+
+            <!-- Logo: file gambar logo-prodi.png (simpan di folder images/) + teks nama prodi -->
+            <a href="https://bis-sby.telkomuniversity.ac.id" class="logo">
+				<img class="logo-img" src="images/logo-1.png" width="160" height="55" alt="Logo Telkom University" />
+            </a>
+
+            <!-- Menu utama -->
+            <nav>
+                <ul id="primary-menu-single1" class="menu">
+                    <li><a href="/">Beranda</a></li>
+                    <li id="menu-item-11428" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-11428"><a href="#">Tentang Kami</a>
+                        <ul class="sub-menu">
+                            <li><a href="https://bis-sby.telkomuniversity.ac.id/profil-program-studi">Profil Program Studi</a></li>
+                            <li><a href="https://bis-sby.telkomuniversity.ac.id/staf-pengajar">Staf Pengajar</a></li>
+                            <li><a href="https://bis-sby.telkomuniversity.ac.id/prestasi-dan-penghargaan/">Prestasi dan Penghargaan</a></li>
+                            <li><a href="https://bis-sby.telkomuniversity.ac.id/kehidupan-kampus-2/">Kehidupan Kampus</a></li>
+						</ul>
+					</li>
+					<li id="menu-item-11433" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-11433"><a href="#">Akademik</a>
+						<ul class="sub-menu">
+							<li><a href="https://bis-sby.telkomuniversity.ac.id/kurikulum">Kurikulum</a></li>
+							<li><a href="https://bis-sby.telkomuniversity.ac.id/prospek-karir">Prospek Karir</a></li>
+						</ul>
+					</li>
+					<li id="menu-item-11436" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-11436"><a href="#">Riset</a>
+						<ul class="sub-menu">
+							<li><a href="https://bis-sby.telkomuniversity.ac.id/kelompok-keahlian">Kelompok Keahlian</a></li>
+							<li><a href="https://bis-sby.telkomuniversity.ac.id/riset-unggulan/">Riset Unggulan</a></li>
+							<li><a href="https://bis-sby.telkomuniversity.ac.id/kegiatan-riset/">Kegiatan Riset</a></li>
+							</ul>
+					</li>
+					<li id="menu-item-11443" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-11443"><a href="#">Publikasi</a>
+						<ul class="sub-menu">
+						<li><a href="https://bis-sby.telkomuniversity.ac.id/artikel-dan-berita/">Berita Seputar SI</a></li>
+						<li><a href="https://bis-sby.telkomuniversity.ac.id/prestasi-mahasiswa">Prestasi Mahasiswa</a></li>
+						<li><a href="https://bis-sby.telkomuniversity.ac.id/proyek-mahasiswa/">Proyek Mahasiswa</a></li>
+						</ul>
+					</li>
+				</ul>
+            </nav>
+
+            <!-- Bagian kanan: ikon cari, garis pemisah, tombol daftar, dan hamburger -->
+            <div class="header-kanan">
+				<!-- Checkbox pengontrol -->
+				<input type="checkbox" id="toggle-search" class="toggle-search">
+
+				<!-- Ikon pencarian -->
+				<label for="toggle-search" class="tombol-cari">
+					<svg class="ikon-cari" viewBox="0 0 24 24"
+						fill="none" stroke="#262626" stroke-width="1.5"
+						stroke-linecap="round">
+						<circle cx="10.5" cy="10.5" r="7"/>
+						<line x1="16" y1="16" x2="22" y2="22"/>
+					</svg>
+				</label>
+
+				<!-- Popup pencarian -->
+				<div class="search-popup">
+
+					<!-- Tombol tutup -->
+					<label for="toggle-search" class="tutup-search">
+						<i class="fa-solid fa-xmark"></i>
+					</label>
+
+					<!-- Form pencarian -->
+					<div class="search-content">
+						<form class="form-search"
+							action="https://bis-sby.telkomuniversity.ac.id/"
+							method="get">
+
+							<input type="search" name="s"
+								placeholder="Searching..."
+								class="search-input">
+
+							<button type="submit" class="submit-search">
+								<i class="fa-solid fa-magnifying-glass"></i>
+							</button>
+
+						</form>
+					</div>
+
+				</div>
+
+                <div class="pemisah"></div>
+                <a href="https://situ-adm.telkomuniversity.ac.id/admission/auth/login" target="_blank" class="btn-daftar">Daftar Sekarang</a>
+
+                <!-- Label ini = tombol hamburger. Diklik = mencentang checkbox di atas -->
+                <label for="menu-toggle" class="hamburger">&#9776;</label>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== HERO: judul halaman + breadcrumb ===== -->
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>Pentingnya Integritas sebagai Fondasi Karakter Mahasiswa Sistem Informasi</h1>
+
+            <div class="breadcrumb">
+                <a href="https://bis-sby.telkomuniversity.ac.id/">Home</a><span class="panah"><i class="fa-solid fa-chevron-right"></i></span>
+                <a href="https://bis-sby.telkomuniversity.ac.id/category/artikel/">Artikel</a><span class="panah"><i class="fa-solid fa-chevron-right"></i></span>
+                Pentingnya Integritas sebagai Fondasi Karakter Mahasiswa Sistem Informasi
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ARTIKEL ===== -->
+    <main class="artikel">
+		<div class="container">
+			<div class="content">
+				<div class="news-details-inner">
+					<!-- Banner utama artikel: file gambar banner.jpg dari folder images/ -->
+					<img class="banner" src="images/banner.jpg" alt="Pentingnya Integritas Bagi Mahasiswa Sistem Informasi">
+
+					<div class="single-content">
+						<!-- Metadata artikel -->
+						<div class="article-meta">
+							<div class="meta-item author">
+								<i class="fa-regular fa-circle-user"></i>
+								<span>By IT TUS</span>
+							</div>
+							<div class="meta-item">
+								<i class="fa-regular fa-clock"></i>
+								<span>June 2, 2024</span>
+							</div>
+							<div class="meta-item">
+								<i class="fa-solid fa-tag"></i>
+								<a href="https://bis-sby.telkomuniversity.ac.id/category/artikel/">Artikel</a>
+							</div>
+						</div>
+
+						<!-- Isi artikel -->
+						<article class="article-content">
+							<p>
+								Di era modern ini, kejujuran dan konsistensi dengan tindakan dan
+								ucapan adalah sesuatu yang penting. Salah satu untuk mendapatkan
+								sifat itu adalah dengan menerapkan prinsip integritas.
+								Integritas adalah mutu, sifat, atau keadaan yang menunjukkan
+								kesatuan yang utuh sehingga memiliki potensi dan kemampuan yang
+								memancarkan kewibawaan atau kejujuran. Jadi, semua perbuatan dan
+								perkataan yang dilakukan seseorang akan mencerminkan integritas
+								orang tersebut. Oleh karena itu, kita perlu memiliki sebuah
+								prinsip integritas agar mendapat kepercayaan orang lain,
+								membangun reputasi, dan juga membangun karakter positif.
+								Integritas adalah prinsip yang perlu dimiliki oleh semua orang,
+								bahkan mahasiswa.
+							</p>
+							<p>
+								Seperti yang disinggung oleh Rektor Telkom University,
+								Prof. Dr. Adiwijaya pada EJLS bahwa seluruh mahasiswa perlu
+								memiliki integritas. Terutama mahasiswa Telkom University.
+								Meskipun Telkom University mempunyai banyak kampus yaitu
+								Bandung, Jakarta dan Surabaya, tetapi semuanya harus memiliki
+								integritas yang sama. Hal ini sangat penting karena integritas
+								tidak hanya memengaruhi reputasi individu, tetapi juga berperan
+								penting dalam kualitas pendidikan dan profesionalisme di masa
+								depan. Mahasiswa bisa menerapkan integritas dengan mengerjakan
+								tugas dengan orisinal dan jujur, sehingga kompetensi yang mereka
+								dapatkan adalah hasil dari usaha dan kemampuan sendiri. Dalam
+								rangka memperkuat prinsip ini, Program Studi Sistem Informasi
+								mengadakan kuliah tamu yang membahas tentang pentingnya
+								integritas.
+							</p>
+							<p>
+								Didalam kuliah tamu tersebut, dijelaskan bahwa integritas yang
+								sangat penting ini dipengaruhi mempunyai 2 faktor. Faktor yang
+								pertama adalah faktor internal. Faktor internal dalam integritas
+								ini merupakan hal yang berasal dari dalam diri individu, misalnya
+								nilai profesionalitas dan norma seseorang. Faktor internal ini
+								menekankan pentingnya dedikasi terhadap etika. Faktor internal
+								juga seringkali didorong oleh keyakinan agama dan prinsip moral
+								yang kuat. Tetapi, integritas yang bergantung hanya pada faktor
+								internal saja belum cukup. Selain faktor internal, terdapat juga
+								faktor eksternal yang juga berperan penting dalam mendukung
+								integritas suatu individu.
+							</p>
+							<p>
+								Faktor eksternal juga memiliki peran penting untuk mendukung
+								integritas individu. Dalam perkuliahan, faktor eksternal bisa
+								meliputi sistem pengawasan dan peraturan yang diterapkan baik
+								untuk mahasiswa maupun dosen. Misalnya, pada Telkom University
+								Surabaya yang dilengkapi dengan CCTV yang bisa membantu
+								mendeteksi penyalahgunaan fasilitas kampus. Tanpa adanya hukuman
+								atau sanksi, mahasiswa diharapkan untuk mengembangkan integritas
+								yang kuat di dalam diri mereka sendiri.
+							</p>
+							<p>
+								Pada kuliah tamu, juga diberikan contoh nyata pentingnya faktor
+								eksternal integritas. Contoh nyata tersebut terjadi di University
+								Teknologi Mara, Malaysia. Di sana, pernah terjadi kejadian dosen
+								menolak suap dari mahasiswa yang melanggar aturan. Mahasiswa ini
+								diberi sanksi harus mengulang semester depan. Namun, mahasiswa
+								ini malah ingin melakukan suap kepada dosen. Meskipun mahasiswa
+								itu memiliki relasi dengan orang penting, dosen tersebut tetap
+								berpegang teguh pada integritasnya karena adanya peraturan dan
+								pengawasan yang ketat. Hal ini menunjukkan bahwa faktor internal
+								seperti peraturan dan pengawasan bisa memperkuat integritas
+								seseorang.
+							</p>
+							<p>
+								Seperti yang dibahas pada kuliah tamu oleh Ainatul Fathiyah
+								Abdul Rahim, integritas adalah prinsip yang harus dimiliki oleh
+								mahasiswa Sistem Informasi untuk memastikan kualitas pendidikan
+								dan profesionalisme yang tinggi. Webinar kuliah tamu internasional
+								tersebut menekankan pentingnya integritas bagi mahasiswa dan
+								bagaimana faktor internal dan eksternal seperti peraturan bisa
+								membantu membangun kepercayaan dan reputasi untuk masa depan.
+							</p>
+							<p>
+								Ternyata penting sekali ya, integritas untuk mahasiswa.
+								Kalian juga bisa mendapatkan ilmu menarik lainnya dengan
+								mengikuti instagram Prodi Sistem Informasi di
+								<a href="#">sini</a>.
+								Selain itu, kalian juga bisa mengunjungi websitenya untuk
+								mendapatkan informasi lengkapnya di
+								<a href="#">sini</a>.
+							</p>
+						</article>
+					
+								<!-- Daftar tag artikel -->
+						<div class="tags">
+							<strong>Tags:</strong>
+							<a href="https://bis-sby.telkomuniversity.ac.id/tag/integritas/" rel="tag">Integritas</a>
+							<a href="https://bis-sby.telkomuniversity.ac.id/tag/karakter-mahasiswa/" rel="tag">Karakter Mahasiswa</a>
+							<a href="https://bis-sby.telkomuniversity.ac.id/tag/kejujuran/" rel="tag">Kejujuran</a>
+							<a href="https://bis-sby.telkomuniversity.ac.id/tag/kepercayaan-diri/" rel="tag">Kepercayaan Diri</a>
+							<a href="https://bis-sby.telkomuniversity.ac.id/tag/konsistensi/" rel="tag">Konsistensi</a>
+							<a href="https://bis-sby.telkomuniversity.ac.id/tag/nilai-moral/" rel="tag">Nilai Moral</a>
+							<a href="https://bis-sby.telkomuniversity.ac.id/tag/prinsip-etika/" rel="tag">Prinsip Etika</a>
+							<a href="https://bis-sby.telkomuniversity.ac.id/tag/reputasi-positif/" rel="tag">Reputasi Positif</a>
+							<a href="https://bis-sby.telkomuniversity.ac.id/tag/sobat-data/" rel="tag">Sobat Data</a>
+					</div>
+				</div>
+			</div>
+		</div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+	
+	<!-- ===== FOOTER ===== -->
+	<footer class="footer">
+
+		<!-- Bagian Ajakan Mendaftar -->
+		<section class="footer-cta">
+			<h2>Mulai perjalanan akademismu bersama kami</h2>
+			<a href="https://smb.telkomuniversity.ac.id/" target="_blank">
+				<span class="elementor-button-text">Daftar Sekarang</span>
+			</a>
+		</section>
+
+		<!-- Bagian Utama Footer -->
+		<div class="footer-main">
+
+			<!-- Informasi Program Studi -->
+			<section class="footer-column">
+
+				<a href="https://bis-sby.telkomuniversity.ac.id">
+					<img src="images/telkommerdeka.webp" width="160" height="43" alt="Telkom University">
+				</a>
+
+				<p class="footer-description">
+					Program Studi Sistem Informasi sudah ada sejak berdirinya
+					Universitas Telkom Surabaya, berdasarkan Keputusan Menteri
+					Riset, Teknologi, dan Pendidikan Tinggi no. 733 / KPT / I / 2018.
+				</p>
+
+				<ul class="footer-contact">
+					<li class="contact-location">
+						<span class="icon">
+							<i class="fa-solid fa-location-dot"></i>
+						</span>
+						<span class="contact-text">
+							Jl. Ketintang No.156, Gayungan, Surabaya,
+							Jawa Timur 60231
+						</span>
+					</li>
+
+					<li>
+						<span class="icon">
+							<i class="fa-regular fa-envelope"></i>
+						</span>
+						<span class="contact-text">
+							<a href="publicrelationssby@telkomuniversity.ac.id">
+								publicrelationssby@telkomuniversity.ac.id
+							</a>
+						</span>
+					</li>
+
+					<li>
+						<span class="icon">
+							<i class="fa-brands fa-instagram"></i>
+						</span>
+						<span class="contact-text">
+							<a href="https://www.instagram.com/is.telkomsurabaya">
+								@is.telkomsurabaya
+							</a>
+						</span>
+					</li>
+
+					<li>
+						<span class="icon">
+							<i class="fa-brands fa-instagram"></i>
+						</span>
+						<span class="contact-text">
+							<a href="https://www.instagram.com/telkomuniversity_surabaya">
+								@telkomuniversity_surabaya
+							</a>
+						</span>
+					</li>
+				</ul>
+
+			</section>
+
+			<!-- Menu Akademik -->
+			<nav class="footer-column">
+				<h3>Akademik</h3>
+
+				<ul>
+					<li>
+						<a href="/kurikulum">Kurikulum</a>
+					</li>
+					<li>
+						<a href="/prospek-karir">Prospek Karir</a>
+					</li>
+					<li>
+						<a href="https://bpa.telkomuniversity.ac.id/wrap/">
+							WRAP
+						</a>
+					</li>
+					<li>
+						<a href="https://studentaffairs.telkomuniversity.ac.id/">
+							Kemahasiswaan
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+			<!-- Menu Prodi Kampus Surabaya -->
+			<nav class="footer-column">
+				<h3>Prodi Kampus Surabaya</h3>
+
+				<ul>
+					<li>
+						<a href="https://bte-sby.telkomuniversity.ac.id/">
+							S1 Teknik Telekomunikasi
+						</a>
+					</li>
+					<li>
+						<a href="https://bee-sby.telkomuniversity.ac.id/">
+							S1 Teknik Elektro
+						</a>
+					</li>
+					<li>
+						<a href="https://bce-sby.telkomuniversity.ac.id/">
+							S1 Teknik Komputer
+						</a>
+					</li>
+					<li>
+						<a href="https://bie-sby.telkomuniversity.ac.id/">
+							S1 Teknik Industri
+						</a>
+					</li>
+					<li>
+						<a href="https://bis-sby.telkomuniversity.ac.id/">
+							S1 Sistem Informasi
+						</a>
+					</li>
+					<li>
+						<a href="https://ble-sby.telkomuniversity.ac.id/">
+							S1 Teknik Logistik
+						</a>
+					</li>
+					<li>
+						<a href="https://bif-sby.telkomuniversity.ac.id/">
+							S1 Teknik Informatika
+						</a>
+					</li>
+					<li>
+						<a href="https://bit-sby.telkomuniversity.ac.id/">
+							S1 Teknologi Informasi
+						</a>
+					</li>
+					<li>
+						<a href="https://bds-sby.telkomuniversity.ac.id/">
+							S1 Sains Data
+						</a>
+					</li>
+					<li>
+						<a href="https://bse-sby.telkomuniversity.ac.id/">
+							S1 Rekayasa Perangkat Lunak
+						</a>
+					</li>
+					<li>
+						<a href="https://bdb-sby.telkomuniversity.ac.id/">
+							S1 Bisnis Digital
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+			<!-- Tautan Penting -->
+			<nav class="footer-column">
+				<h3>Tautan Penting</h3>
+
+				<ul>
+					<li>
+						<a href="https://ypt.or.id/">
+							Yayasan Pendidikan Telkom
+						</a>
+					</li>
+					<li>
+						<a href="https://telkomuniversity.ac.id/">
+							Tel-U Bandung
+						</a>
+					</li>
+					<li>
+						<a href="https://jakarta.telkomuniversity.ac.id/">
+							Tel-U Jakarta
+						</a>
+					</li>
+					<li>
+						<a href="https://surabaya.telkomuniversity.ac.id/">
+							Tel-U Surabaya
+						</a>
+					</li>
+					<li>
+						<a href="https://purwokerto.telkomuniversity.ac.id/">
+							Tel-U Purwokerto
+						</a>
+					</li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<!-- Copyright -->
+		<div class="footer-bottom">
+			<p>
+				© Telkom University Kampus Surabaya |
+				Universitas Swasta Terbaik
+			</p>
+		</div>
+	</footer>
+</body>
+</html>

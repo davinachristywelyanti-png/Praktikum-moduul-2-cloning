@@ -1,0 +1,923 @@
+/* ==========================================================
+   style.css - Clone halaman berita Prodi Sistem Informasi
+   Telkom University Surabaya
+   ========================================================== */
+
+/* =====================================================
+   1. VARIABEL WARNA & RESET
+   ===================================================== */
+
+/* :root = tempat menyimpan variabel CSS supaya warna mudah diganti di satu tempat */
+:root {
+    --ungu: #44106f;          /* warna tombol "Daftar Sekarang" & footer */
+    --ungu-banner: #6b1a70;   /* warna strip judul pada gambar banner */
+    --teks: #2b2b2b;          /* warna teks utama */
+    --abu: #666666;           /* warna teks sekunder (breadcrumb) */
+    --garis: #D9D9D9;         /* warna garis pemisah */
+}
+
+/* Reset: hilangkan margin/padding bawaan browser.
+   box-sizing: border-box = padding & border tidak menambah lebar elemen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Figtree", sans-serif;
+    color: var(--teks);
+    line-height: 1.8;
+    background: #ffffff;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =====================================================
+   2. HEADER (logo + menu + tombol daftar)
+   ===================================================== */
+header {
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-inner {
+	font-weight: 300;
+    display: flex;
+    align-items: center;              /* sejajar vertikal di tengah */
+    justify-content: space-between;   /* logo kiri, menu tengah, tombol kanan */
+    padding: 0 20px;
+    gap: 20px;
+	min-height: 104.792px;
+	box-sizing: border-box;
+}
+
+/* ---------- Logo ---------- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 160px;
+    height: 50px;
+    flex-shrink: 0;   /* logo tidak ikut mengecil saat ruang sempit */
+}
+
+.logo-text {
+    font-size: 18px;
+    line-height: 1.25;
+}
+
+.logo-text strong {
+    font-weight: 600;
+}
+
+/* ---------- Menu navigasi ---------- */
+nav {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+nav ul.menu {
+    list-style: none;
+    display: flex;
+    gap: 34px;
+}
+
+nav ul.menu > li {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+nav ul.menu > li > a {
+    font-size: 16px;
+    display: block;
+    padding: 8px 0;
+}
+
+nav ul li > a:hover {
+    color: var(--ungu);
+}
+
+/* Tanda "+" setelah menu yang punya submenu */
+nav ul li.menu-item-has-children > a::after {
+    content: " +";
+    font-weight: 600;
+}
+
+/* Submenu dropdown: tersembunyi, muncul saat menu di-hover */
+nav ul.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    padding: 8px 0;
+    z-index: 200;
+    list-style: none;
+}
+
+/* Tautan submenu */
+nav ul.sub-menu a {
+    display: block;
+    padding: 8px 20px;
+    font-size: 15px;
+}
+
+/* Efek hover submenu */
+nav ul.sub-menu a:hover {
+    color: #5E217F;
+}
+
+/* Tampilkan submenu saat menu di-hover */
+nav ul.menu > li:hover > ul.sub-menu {
+    display: block;
+}
+
+/* ---------- Area kanan: ikon cari + tombol daftar ---------- */
+.header-kanan {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Checkbox disembunyikan */
+.toggle-search {
+    display: none;
+}
+
+/* Ikon search */
+.tombol-cari {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ikon-cari {
+    width: 25px;
+    height: 22px;
+    cursor: pointer;
+}
+
+/* Popup pencarian */
+.search-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 270.59px;
+    box-sizing: border-box;
+    background: #f7f7f7;
+    z-index: 9999;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+
+    transition: opacity 0.3s ease,
+                visibility 0.3s ease,
+                transform 0.3s ease;
+}
+
+/* Popup muncul saat checkbox dicentang */
+.toggle-search:checked ~ .search-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Tombol tutup */
+.tutup-search {
+    position: absolute;
+    top: 38px;
+    right: 3.8%;
+	width: 30px;
+    height: 30px;
+    font-size: 30px;
+    color: #262626;
+    cursor: pointer;
+}
+
+/* Area form pencarian */
+.search-content {
+    position: absolute;
+    left: 2.5%;
+    right: 2.8%;
+    bottom: 60px;
+}
+
+/* Form */
+.form-search {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ced1d9;
+    padding-bottom: 15px;
+}
+
+/* Input */
+.search-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 30px;
+    color: #110c2d;
+}
+
+.search-input::placeholder {
+    color: #777;
+    opacity: 1;
+}
+
+.search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+/* Tombol submit */
+.submit-search {
+    border: none;
+    background: transparent;
+    color: #777;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .search-popup {
+        height: 280px;
+    }
+
+    .tutup-search {
+        top: 25px;
+        right: 5%;
+        font-size: 24px;
+    }
+
+    .search-content {
+        left: 5%;
+        right: 5%;
+        bottom: 55px;
+    }
+
+    .search-input {
+        font-size: 24px;
+    }
+
+    .submit-search {
+        font-size: 24px;
+    }
+}
+
+/* Garis tegak tipis pemisah ikon cari dan tombol */
+.pemisah {
+    width: 2px;
+    height: 20px;
+    background: var(--garis);
+}
+
+.btn-daftar {
+    background: var(--ungu);
+    color: #ffffff;
+	display: inline-block;
+	border-radius: 3px;
+	font-size: 15px;
+    line-height: 1;
+    padding: 12px 24px;
+    text-align: center;
+    white-space: nowrap;   /* teks tombol tidak turun baris */
+    transition:
+        transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+
+    transform: scale(1);
+    transform-origin: center;
+}
+
+.btn-daftar:hover {
+    background-color: #262626;
+    color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Checkbox & hamburger: disembunyikan di desktop, dimunculkan di layar kecil */
+#menu-toggle { display: none; }
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* =====================================================
+   3. HERO (area judul berlatar abu-abu)
+   ===================================================== */
+.hero {
+    /* Gradient abu-abu memberi kesan foto gedung yang pudar seperti web aslinya.
+       Ganti dengan: background: url('gedung.jpg') center/cover; bila punya gambarnya */
+    min-height: 304.41px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+	
+	background:
+        url('images/header.jpg') center / cover no-repeat,   /* foto gedung */
+        linear-gradient(180deg, #ececec, #d8d8d8);         /* cadangan jika foto belum ada */
+}
+
+/* ---------- Isi Hero ---------- */
+.hero-inner {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 74.333px;
+    padding: 100px 12px;
+    box-sizing: border-box;
+}
+
+/* ---------- Judul ---------- */
+.hero h1 {
+	font-family: "Sora", sans-serif;
+    font-size: clamp(28px, 2.25vw, 38px);
+    letter-spacing: 0.4px;
+    line-height: 1.2;
+    font-weight: 600;
+    max-width: 100%;
+    margin: 0;
+    color: #000;
+}
+
+/* ---------- Breadcrumb ---------- */
+.breadcrumb {
+    font-size: 16px;
+	font-weight: 300;
+    line-height: 1.2;
+    color: var(--abu, #7A7A7A);
+	padding-top: 12px;
+}
+
+.breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--ungu, #4b087f);
+}
+
+.breadcrumb .panah {
+    margin: 0;
+	color: #7A7A7A;	
+}
+
+
+/* =====================================================
+   4. KONTEN ARTIKEL
+   ===================================================== */
+.container { 
+	width: 91%; 
+	max-width: 1400px; 
+	margin: 0 auto; 
+	padding: 0 12px; 
+	box-sizing: border-box; 
+}
+
+.content {
+	padding: 100px 0;
+}
+
+.news-details-inner {
+    margin-right: 30px;
+    padding: 0 12px 50px;
+}
+
+.single-content {
+	padding: 0 10px;
+}
+
+/* ---------- Gambar banner utama ---------- */
+.banner {
+	width: 100%;
+    max-width: 100%;
+    margin-bottom: 35px;
+    overflow: hidden;
+}
+
+/* ---------- Isi artikel ---------- */
+.article-meta {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 150%;
+	letter-spacing: -0.28px;
+	text-transform: capitalize;
+	color: #737477;
+}
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+}
+.meta-item i {
+    font-size: 17px;
+    color: #890C25;
+}
+
+.meta-item.author{
+    color: #890C25;
+}
+
+.meta-item.author i {
+    font-size: 17px;
+}
+
+.meta-item a {
+    color: #777777;
+    text-decoration: none;
+}
+
+.meta-item a:hover {
+    color: #890C25;
+}
+
+/* ---------- Isi artikel ---------- */
+.article-content {
+	padding: 22px 0;
+}
+
+.artikel p {
+	margin: 0 0 26px;
+    font-size: 14px !important;
+    font-weight: 300;
+	line-height: 1.8;
+    overflow-x: hidden;
+}
+
+.artikel strong {
+    font-weight: 600;
+}
+
+/* Daftar tag di bawah artikel */
+.tags {
+    clear: both;
+    margin: 10px 0;
+    border-top: 1px solid rgba(131, 131, 131, .25);
+    padding: 65px 0 55px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.tags strong {
+    color: #666;
+    margin-right: 15px;
+}
+
+.tags a {
+    display: inline-block;
+    background: #fff;
+    color: #777;
+    border: 1px solid #d9d9d9;
+    padding: 8px 12px;
+    border-radius: 0;
+    margin: 0 0 10px 10px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.2;
+	transition: all .3s ease;
+}
+
+/* Saat mouse diarahkan ke tag */
+.tags a:hover {
+    background: #A00022;	
+    color: #fff;
+    border-color: #a00022;
+}
+
+/* ==============================
+   FOOTER
+================================= */
+footer {
+    width: 100%;
+    background-color: #171719;
+    color: #a0a0a8;
+}
+
+/* ==============================
+   BANNER CTA
+================================= */
+.footer-cta {
+    min-height: 230px;
+    padding: 55px 80PX;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+
+    background:
+        url('images/footer.png') center / cover no-repeat,
+		linear-gradient(rgba(48, 0, 75, 0.92), rgba(48, 0, 75, 0.92));
+
+    color: #ffffff;
+}
+
+.footer-cta h2 {
+    max-width: 520px;
+    margin: 0;
+
+	font-family: "Sora", sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+    line-height: 40px;
+    letter-spacing: 0.5px;
+}
+
+.footer-cta a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 186px;
+    height: 55px;
+    padding: 20px 40PX;
+    box-sizing: border-box;
+
+    background-color: #ffffff;
+	color: #6c398c;
+    text-decoration: none;
+    font-size: 14.5px;
+	line-height: 1;
+    transition: background .3s, border .3s, border-radius .3s, box-shadow .3s;
+}
+
+.footer-cta a span {
+    display: inline-block;
+    text-align: center;
+}
+
+.footer-cta a:hover {
+    background-color: #262626;
+    color: #ffffff;
+}
+
+/* =====================================================
+   AREA UTAMA FOOTER
+===================================================== */
+.footer-main {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.55fr)
+        minmax(0, 0.9fr)
+        minmax(0, 0.9fr)
+        minmax(0, 1.55fr);
+    gap: 20px;
+    align-items: start;
+
+    width: 100%;
+    padding: 105px 10px 45px;
+    box-sizing: border-box;
+
+    background-color: #181818;
+    color: #a0a0a8;
+}
+
+/* Kolom footer */
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Mencegah aturan nav header memengaruhi menu footer */
+.footer-main nav.footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+
+    gap: 20px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* =====================================================
+   INFORMASI PROGRAM STUDI
+===================================================== */
+
+/* Logo */
+.footer-logo {
+    display: inline-block;
+    align-self: flex-start;
+
+    max-width: 100%;
+    margin-bottom: 35px;
+    text-decoration: none;
+}
+
+.footer-logo img {
+    display: block;
+    width: 160px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Deskripsi */
+.footer-description {
+    margin: 0 0 26px;
+
+    color: #737477;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.85;
+}
+
+
+/* =====================================================
+   INFORMASI KONTAK
+===================================================== */
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Setiap informasi kontak */
+.footer-contact li {
+    display: flex;
+    align-items: flex-start;
+
+    width: 100%;
+    margin: 5px 0 0;
+    padding: 0 0 5px;
+
+    color: #737477;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+}
+
+/* Baris lokasi paling atas */
+.footer-contact li.contact-location {
+    margin-top: 0;
+    padding-bottom: 5px;
+}
+
+/* Ikon kontak */
+.footer-contact .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 17px;
+
+    margin-top: 5px;
+
+    color: #85858d;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+}
+
+/* Tulisan setelah ikon */
+.footer-contact .contact-text {
+    display: inline-block;
+    padding-left: 5px;
+}
+
+/* Ukuran ikon Font Awesome */
+.footer-contact .icon i {
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* Tautan kontak */
+.footer-contact li a {
+    color: #737477;
+    font-size: 14px;
+    line-height: 1.8;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+
+    transition: color 0.3s ease;
+}
+
+.footer-contact li a:hover {
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   MENU FOOTER
+===================================================== */
+
+/* Judul kolom */
+.footer-column h3 {
+    display: block;
+    width: 100%;
+    margin: 0 0 35px;
+
+    color: #f2f2f2;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* Daftar menu */
+.footer-column > ul:not(.footer-contact) {
+    display: block;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Item menu */
+.footer-column > ul:not(.footer-contact) > li {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: 41px;
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 8px 0;
+}
+
+
+/* Tautan menu */
+.footer-column > ul:not(.footer-contact) > li > a {
+    display: block;
+
+    color: #737477;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    text-decoration: none;
+    overflow-wrap: break-word;
+
+    transition: color 0.3s ease;
+}
+
+.footer-column > ul:not(.footer-contact) > li > a:hover {
+    color: #ffffff;
+}
+
+
+/* =====================================================
+   COPYRIGHT
+===================================================== */
+.footer-bottom {
+    width: auto;
+    margin: 0 10px;
+    padding: 24px 10px 30px;
+
+    border-top: 1px solid #29292c;
+    box-sizing: border-box;
+    text-align: center;
+
+    background-color: #171719;
+}
+
+.footer-bottom p {
+    margin-bottom: 26px;
+
+    color: #737477;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET
+===================================================== */
+@media (max-width: 1024px) {
+
+    /* CTA */
+    .footer-cta {
+        width: calc(100% - 60px);
+        min-height: 220px;
+        padding: 40px 50px;
+    }
+
+    .footer-cta h2 {
+        max-width: 600px;
+        font-size: 38px;
+    }
+
+    /* Footer utama */
+    .footer-main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 45px 35px;
+        padding: 70px 20px 40px;
+    }
+
+    .footer-column h3 {
+        margin-bottom: 30px;
+    }
+
+    .footer-description {
+        margin-bottom: 30px;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE
+===================================================== */
+@media (max-width: 600px) {
+
+    /* CTA */
+    .footer-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 25px;
+
+        width: calc(100% - 30px);
+        min-height: auto;
+        margin-top: 35px;
+        padding: 35px 25px;
+    }
+
+    .footer-cta h2 {
+        max-width: 100%;
+        font-size: 32px;
+        line-height: 1.1;
+    }
+
+    .footer-cta a {
+        flex: 0 0 55px;
+        width: 170px;
+        height: 55px;
+    }
+
+    /* Footer utama */
+    .footer-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 35px;
+
+        padding: 50px 15px 30px;
+    }
+
+    .footer-column h3 {
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        margin-bottom: 25px;
+    }
+
+    .footer-description {
+        margin-bottom: 30px;
+    }
+
+    .footer-column li {
+        margin-bottom: 15px;
+    }
+
+    /* Copyright */
+    .footer-bottom {
+        margin: 0 10px;
+        padding: 20px 5px;
+    }
+
+    .footer-bottom p {
+        font-size: 13px;
+    }
+}
